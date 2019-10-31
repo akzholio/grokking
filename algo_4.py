@@ -81,9 +81,20 @@ def quicksort(arr):
         right = [i for i in arr[1:] if i > pivot]
         return quicksort(left) + [pivot] + quicksort(right)
 
-array = [1,5,2,4,7,6,8,10]
+array = [5,1,4,2,7,6,10,8]
 
 print(quicksort(array))
+
+def merge(arr1, arr2):
+    min_value = 0
+    max_value = 0
+    min_value = min(arr1[0], arr2[0])
+    max_value = max(arr1[1], arr2[1])
+    result = []
+    result[0] = min_value
+    result[3] = max_value
+    
+    return result
 
 
 def mergesort(arr):
@@ -96,10 +107,16 @@ def mergesort(arr):
     else:
         left = [i for i in arr[:len(arr)//2]]
         right = [i for i in arr[len(arr)//2:]]
-        print(left, right)
+        if len(left) == 2:
+            if left[0] > left[1]:
+                left[0], left[1] = left[1], left[0]
+        if len(right) == 2:
+            if right[0] > right[1]:
+                right[0], right[1] = right[1], right[0]
+            
         return mergesort(left) + mergesort(right)
 
-# print(mergesort(array))
+print(mergesort(array))
 
 '''
 
